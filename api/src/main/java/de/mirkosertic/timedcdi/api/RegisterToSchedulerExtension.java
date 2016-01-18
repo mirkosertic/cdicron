@@ -1,6 +1,7 @@
 package de.mirkosertic.timedcdi.api;
 
 import javax.enterprise.context.spi.Context;
+import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.*;
 import java.lang.reflect.Method;
@@ -13,19 +14,29 @@ public class RegisterToSchedulerExtension implements Extension {
         final Bean bean;
         final BeanManager beanManager;
         final Method method;
+        boolean firstInit;
+
+        private Object instance;
 
         public BeanMethodInvocationRunnable(Bean aBean, BeanManager aBeanManager, Method aMethod) {
             bean = aBean;
             beanManager = aBeanManager;
             method = aMethod;
+            firstInit = true;
         }
 
         @Override
         public void run() {
-            Context theContext = beanManager.getContext(bean.getScope());
-            Object theInstance = theContext.get(bean);
+            if (firstInit) {
+                Context theContext = beanManager.getContext(bean.getScope());
+                instance = theContext.get(bean);
+                if (instance == null) {
+                    CreationalContext theCreational = beanManager.createCreationalContext(bean);
+                    instance = beanManager.getReference(bean, bean.getBeanClass(), theCreational);
+                }
+            }
             try {
-                method.invoke(theInstance, new Object[0]);
+                method.invoke(instance, new Object[0]);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -68,9 +79,9 @@ public class RegisterToSchedulerExtension implements Extension {
         if (jobScheduler == null) {
             throw new IllegalStateException("No JobScheduler Implementation found in managed scope!");
         }
-        Context theContext = aBeanManager.getContext(jobScheduler.getScope());
+        CreationalContext theContext = aBeanManager.createCreationalContext(jobScheduler);
         try {
-            JobScheduler theScheduler = (JobScheduler) theContext.get(jobScheduler);
+            JobScheduler theScheduler = (JobScheduler) aBeanManager.getReference(jobScheduler, jobScheduler.getBeanClass(), theContext);
             jobsToRegister.stream().forEach(t -> theScheduler.schedule(t.timed.cronExpression(), t.runnable));
         } catch (Exception e) {
             throw new RuntimeException(e);

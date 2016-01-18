@@ -6,8 +6,6 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
 import javax.annotation.PreDestroy;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.spi.AfterDeploymentValidation;
 import javax.inject.Singleton;
 
 import static org.quartz.JobBuilder.*;
@@ -34,6 +32,7 @@ public class QuartzScheduler implements JobScheduler {
     public QuartzScheduler() throws SchedulerException {
         SchedulerFactory theFactory = new StdSchedulerFactory();
         scheduler = theFactory.getScheduler();
+        scheduler.start();
     }
 
     @Override
@@ -49,12 +48,12 @@ public class QuartzScheduler implements JobScheduler {
         }
     }
 
-    public void afterInitialized(@Observes AfterDeploymentValidation aAfterDeploymentValidation) throws SchedulerException {
-        scheduler.start();
-    }
-
     @PreDestroy
-    public void shutdown() throws SchedulerException {
-        scheduler.shutdown();
+    public void shutdown() {
+        try {
+            scheduler.shutdown();
+        } catch (SchedulerException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
