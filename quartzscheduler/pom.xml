@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>timed-cdi-parent</artifactId>
-        <groupId>de.mirkosertic.timedcdi</groupId>
+        <artifactId>cdicron-parent</artifactId>
+        <groupId>de.mirkosertic.cdicron</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>timed-cdi-quartz-scheduler</artifactId>
-    <name>Timed CDI Scheduler implementation based on Quartz</name>
+    <artifactId>cdi-cron-quartz-scheduler</artifactId>
+    <name>CDI Cron Scheduler implementation based on Quartz</name>
 
     <dependencies>
         <dependency>
@@ -19,8 +19,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>de.mirkosertic.timedcdi</groupId>
-            <artifactId>timed-cdi-api</artifactId>
+            <groupId>de.mirkosertic.cdicron</groupId>
+            <artifactId>cdi-cron-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>

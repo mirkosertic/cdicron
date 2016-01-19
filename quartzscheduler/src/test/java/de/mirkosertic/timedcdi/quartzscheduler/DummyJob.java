@@ -1,7 +1,6 @@
 package de.mirkosertic.timedcdi.quartzscheduler;
 
-import de.mirkosertic.timedcdi.api.JobScheduler;
-import de.mirkosertic.timedcdi.api.Timed;
+import de.mirkosertic.cdicron.api.Cron;
 
 import javax.inject.Singleton;
 import java.util.concurrent.atomic.AtomicLong;
@@ -11,7 +10,7 @@ public class DummyJob {
 
     public static final AtomicLong COUNTER = new AtomicLong(0);
 
-    @Timed(cronExpression = "0/2 * * * * ?")
+    @Cron(cronExpression = "0/2 * * * * ?")
     public void testTimed() {
         COUNTER.incrementAndGet();
     }

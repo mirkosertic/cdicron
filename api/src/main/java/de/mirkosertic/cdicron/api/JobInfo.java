@@ -1,15 +1,15 @@
-package de.mirkosertic.timedcdi.api;
+package de.mirkosertic.cdicron.api;
 
 class JobInfo {
-    private final Timed timed;
+    private final Cron timed;
     private final BeanMethodInvocationRunnable runnable;
 
-    public JobInfo(Timed aTimed, BeanMethodInvocationRunnable aRunnable) {
+    public JobInfo(Cron aTimed, BeanMethodInvocationRunnable aRunnable) {
         timed = aTimed;
         runnable = aRunnable;
     }
 
-    public Timed getTimed() {
+    public Cron getTimed() {
         return timed;
     }
 

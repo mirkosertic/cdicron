@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.mirkosertic.timedcdi</groupId>
-    <artifactId>timed-cdi-parent</artifactId>
+    <groupId>de.mirkosertic.cdicron</groupId>
+    <artifactId>cdicron-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Timed CDI Parent-POM</name>
-    <description>The Parent-POM for the timed-cdi project</description>
+    <name>CDI Cron Parent-POM</name>
+    <description>The Parent-POM for the CDI cron project</description>
     <url>https://github.com/mirkosertic/timed-cdi</url>
 
     <licenses>
@@ -132,13 +132,8 @@
                 <version>2.3.2.Final</version>
             </dependency>
             <dependency>
-                <groupId>de.mirkosertic.timedcdi</groupId>
-                <artifactId>timed-cdi-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.mirkosertic.timedcdi</groupId>
-                <artifactId>timed-cdi-quartz-scheduler</artifactId>
+                <groupId>de.mirkosertic.cdicron</groupId>
+                <artifactId>cdi-cron-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

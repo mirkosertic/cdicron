@@ -1,4 +1,4 @@
-package de.mirkosertic.timedcdi.api;
+package de.mirkosertic.cdicron.api;
 
 import javax.enterprise.context.spi.Context;
 import javax.enterprise.context.spi.CreationalContext;

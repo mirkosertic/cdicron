@@ -1,4 +1,4 @@
-package de.mirkosertic.timedcdi.api;
+package de.mirkosertic.cdicron.api;
 
 import java.lang.annotation.*;
 
@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Timed {
+public @interface Cron {
 
     String cronExpression();
 }

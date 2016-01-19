@@ -1,4 +1,4 @@
-package de.mirkosertic.timedcdi.api;
+package de.mirkosertic.cdicron.api;
 
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.event.Observes;
@@ -7,13 +7,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisterToSchedulerExtension implements Extension {
+public class CDICronExtension implements Extension {
 
 
     private final List<JobInfo> jobsToRegister;
     private Bean jobScheduler;
 
-    public RegisterToSchedulerExtension() {
+    public CDICronExtension() {
         jobsToRegister = new ArrayList<>();
     }
 
@@ -23,8 +23,8 @@ public class RegisterToSchedulerExtension implements Extension {
             jobScheduler = aEvent.getBean();
         }
         for (Method theMethod : theBeanType.getDeclaredMethods()) {
-            if (theMethod.isAnnotationPresent(Timed.class)) {
-                Timed theTimed = theMethod.getAnnotation(Timed.class);
+            if (theMethod.isAnnotationPresent(Cron.class)) {
+                Cron theTimed = theMethod.getAnnotation(Cron.class);
                 BeanMethodInvocationRunnable theRunnable = new BeanMethodInvocationRunnable(aEvent.getBean(), aBeanManager, theMethod);
                 jobsToRegister.add(new JobInfo(theTimed, theRunnable));
             }

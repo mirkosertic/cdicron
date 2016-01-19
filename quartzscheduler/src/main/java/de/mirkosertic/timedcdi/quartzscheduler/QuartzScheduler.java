@@ -1,6 +1,6 @@
 package de.mirkosertic.timedcdi.quartzscheduler;
 
-import de.mirkosertic.timedcdi.api.JobScheduler;
+import de.mirkosertic.cdicron.api.JobScheduler;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
