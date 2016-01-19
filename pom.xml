@@ -35,9 +35,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/mirkosertic/timed-cdi.git</connection>
-        <developerConnection>scm:git:https://github.com/mirkosertic/timed-cdi.git</developerConnection>
-        <url>https://github.com/mirkosertic/timed-cdi.git</url>
+        <connection>scm:git:https://github.com/mirkosertic/cdicron.git</connection>
+        <developerConnection>scm:git:https://github.com/mirkosertic/cdicron.git</developerConnection>
+        <url>https://github.com/mirkosertic/cdicron.git</url>
     </scm>
 
     <modules>
