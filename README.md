@@ -9,16 +9,17 @@ A CDI extension to schedule jobs as easy as Unix cron
 Java Maven Dependency available from Central Repository:
 
 ```xml
-            <dependency>
-                <groupId>de.mirkosertic.cdicron</groupId>
-                <artifactId>cdi-cron-quartz-scheduler</artifactId>
-                <version>1.0</version>
-            </dependency>
+<dependency>
+    <groupId>de.mirkosertic.cdicron</groupId>
+    <artifactId>cdi-cron-quartz-scheduler</artifactId>
+    <version>1.0</version>
+</dependency>
 ```
 
 Example Java Code
 
 ```java
+import de.mirkosertic.cdicron.api.Cron;
 
 @Singleton
 public class DummyJob {
