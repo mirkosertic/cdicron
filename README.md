@@ -4,13 +4,13 @@ A CDI extension to schedule jobs as easy as Unix cron
 
 ## Usage
 
-Java Maven Dependency
+Java Maven Dependency available from Central Repository:
 
 ```xml
             <dependency>
                 <groupId>de.mirkosertic.cdicron</groupId>
                 <artifactId>cdi-cron-quartz-scheduler</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
 ```
 
