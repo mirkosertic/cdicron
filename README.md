@@ -2,6 +2,8 @@
 
 A CDI extension to schedule jobs as easy as Unix cron
 
+[![Build Status](https://travis-ci.org/mirkosertic/GameComposer.svg?branch=master)](https://travis-ci.org/mirkosertic/GameComposer)
+
 ## Usage
 
 Java Maven Dependency available from Central Repository:
