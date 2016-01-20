@@ -36,7 +36,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/mirkosertic/cdicron.git</connection>
-        <developerConnection>scm:git:git@github.com:mirkosertic/cdicron.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/mirkosertic/cdicron.git</developerConnection>
         <url>https://github.com/mirkosertic/cdicron.git</url>
         <tag>HEAD</tag>
     </scm>
@@ -48,7 +48,7 @@
 
     <build>
         <plugins>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <executions>
@@ -60,7 +60,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
 
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
