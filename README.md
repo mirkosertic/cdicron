@@ -12,7 +12,7 @@ Java Maven Dependency available from Central Repository:
 <dependency>
     <groupId>de.mirkosertic.cdicron</groupId>
     <artifactId>cdi-cron-quartz-scheduler</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 
