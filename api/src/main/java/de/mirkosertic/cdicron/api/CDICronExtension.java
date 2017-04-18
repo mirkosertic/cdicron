@@ -38,7 +38,9 @@ public class CDICronExtension implements Extension {
         CreationalContext theContext = aBeanManager.createCreationalContext(jobScheduler);
         try {
             JobScheduler theScheduler = (JobScheduler) aBeanManager.getReference(jobScheduler, jobScheduler.getBeanClass(), theContext);
-            jobsToRegister.stream().forEach(t -> theScheduler.schedule(t.getTimed().cronExpression(), t.getRunnable()));
+            for (JobInfo t : jobsToRegister) {
+                theScheduler.schedule(t.getTimed().cronExpression(), t.getRunnable());
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
